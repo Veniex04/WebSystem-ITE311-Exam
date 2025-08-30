@@ -29,6 +29,16 @@ class Migrations extends BaseConfig
      */
     public string $table = 'migrations';
 
+
+    /**
+     * Timestamp or Sequential
+     *
+     * Options:
+     * - 'sequential' : 001_add_users.php, 002_add_courses.php, etc.
+     * - 'timestamp'  : 2025-08-31-123456_add_users.php
+     */
+    public string $type = 'sequential';
+
     /**
      * --------------------------------------------------------------------------
      * Timestamp Format
