@@ -59,7 +59,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.php"><i class="bi bi-house-door-fill"></i>Home</a>
+            <a class="nav-link" href="<?= base_url('home')?>"><i class="bi bi-house-door-fill"></i>Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><i class="bi bi-book-fill"></i>Courses</a>
@@ -72,11 +72,11 @@
           </li>
           <!-- About Page Button -->
           <li class="nav-item">
-            <a class="nav-link" href="about.php"><i class="bi bi-info-circle-fill"></i>About</a>
+            <a class="nav-link" href="<?= base_url('about')?>"><i class="bi bi-info-circle-fill"></i>About</a>
           </li>
           <!-- Contact Page Button -->
           <li class="nav-item">
-            <a class="nav-link" href="contact.php"><i class="bi bi-envelope-fill"></i>Contact</a>
+            <a class="nav-link" href="<?= base_url('contact')?>"><i class="bi bi-envelope-fill"></i>Contact</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
