@@ -70,11 +70,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#"><i class="bi bi-graph-up"></i>Grade</a>
           </li>
-          <!-- About Page Button -->
           <li class="nav-item">
             <a class="nav-link" href="<?= base_url('about')?>"><i class="bi bi-info-circle-fill"></i>About</a>
           </li>
-          <!-- Contact Page Button -->
           <li class="nav-item">
             <a class="nav-link" href="<?= base_url('contact')?>"><i class="bi bi-envelope-fill"></i>Contact</a>
           </li>
