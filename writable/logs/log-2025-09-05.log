@@ -1,0 +1,434 @@
+DEBUG - 2025-09-05 10:44:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 10:44:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 10:44:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 10:55:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 10:55:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 10:55:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 10:55:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-05 10:56:14 --> CSRF token verified.
+ERROR - 2025-09-05 10:56:15 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in C:\xampp\htdocs\ITE311-PECAYO\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-PECAYO\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'lms_pecayo', 3306, '', 0)
+#1 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('joshuapecayo25@...', 'users.email,id,...', Array)
+#6 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('joshuapecayo25@...', 'users.email,id,...', Array, NULL, 'email')
+#7 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('email', 'email', 'joshuapecayo25@...', Array, Array, 'email')
+#8 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(1570): CodeIgniter\Validation\Validation->run(Array, NULL, NULL)
+#9 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(807): CodeIgniter\BaseModel->validate(Array)
+#10 C:\xampp\htdocs\ITE311-PECAYO\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, false)
+#11 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#12 C:\xampp\htdocs\ITE311-PECAYO\app\Controllers\Auth.php(63): CodeIgniter\BaseModel->save(Array)
+#13 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(933): App\Controllers\Auth->attemptRegister()
+#14 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#15 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#16 C:\xampp\htdocs\ITE311-PECAYO\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#17 C:\xampp\htdocs\ITE311-PECAYO\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#18 C:\xampp\htdocs\ITE311-PECAYO\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#19 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: NO) in C:\xampp\htdocs\ITE311-PECAYO\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('joshuapecayo25@...', 'users.email,id,...', Array)
+#5 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('joshuapecayo25@...', 'users.email,id,...', Array, NULL, 'email')
+#6 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('email', 'email', 'joshuapecayo25@...', Array, Array, 'email')
+#7 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(1570): CodeIgniter\Validation\Validation->run(Array, NULL, NULL)
+#8 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(807): CodeIgniter\BaseModel->validate(Array)
+#9 C:\xampp\htdocs\ITE311-PECAYO\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, false)
+#10 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#11 C:\xampp\htdocs\ITE311-PECAYO\app\Controllers\Auth.php(63): CodeIgniter\BaseModel->save(Array)
+#12 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(933): App\Controllers\Auth->attemptRegister()
+#13 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#14 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#15 C:\xampp\htdocs\ITE311-PECAYO\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#16 C:\xampp\htdocs\ITE311-PECAYO\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#17 C:\xampp\htdocs\ITE311-PECAYO\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#18 {main}
+CRITICAL - 2025-09-05 10:56:15 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: NO)
+[Method: POST, Route: register]
+in SYSTEMPATH\Database\BaseConnection.php on line 465.
+ 1 SYSTEMPATH\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `users`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('joshuapecayo25@gmail.com', 'users.email,id,{id}', [...])
+ 5 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('joshuapecayo25@gmail.com', 'users.email,id,{id}', [...], null, 'email')
+ 6 SYSTEMPATH\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('email', 'email', 'joshuapecayo25@gmail.com', [...], [...], 'email')
+ 7 SYSTEMPATH\BaseModel.php(1570): CodeIgniter\Validation\Validation->run([...], null, null)
+ 8 SYSTEMPATH\BaseModel.php(807): CodeIgniter\BaseModel->validate([...])
+ 9 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], false)
+10 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+11 APPPATH\Controllers\Auth.php(63): CodeIgniter\BaseModel->save([...])
+12 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->attemptRegister()
+13 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+14 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-09-05 11:01:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-05 11:01:24 --> CSRF token verified.
+ERROR - 2025-09-05 11:01:24 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in C:\xampp\htdocs\ITE311-PECAYO\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-PECAYO\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'lms_pecayo', 3306, '', 0)
+#1 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('joshuapecayo25@...', 'users.email,id,...', Array)
+#6 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('joshuapecayo25@...', 'users.email,id,...', Array, NULL, 'email')
+#7 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('email', 'email', 'joshuapecayo25@...', Array, Array, 'email')
+#8 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(1570): CodeIgniter\Validation\Validation->run(Array, NULL, NULL)
+#9 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(807): CodeIgniter\BaseModel->validate(Array)
+#10 C:\xampp\htdocs\ITE311-PECAYO\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, false)
+#11 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#12 C:\xampp\htdocs\ITE311-PECAYO\app\Controllers\Auth.php(63): CodeIgniter\BaseModel->save(Array)
+#13 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(933): App\Controllers\Auth->attemptRegister()
+#14 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#15 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#16 C:\xampp\htdocs\ITE311-PECAYO\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#17 C:\xampp\htdocs\ITE311-PECAYO\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#18 C:\xampp\htdocs\ITE311-PECAYO\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#19 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: NO) in C:\xampp\htdocs\ITE311-PECAYO\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('joshuapecayo25@...', 'users.email,id,...', Array)
+#5 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('joshuapecayo25@...', 'users.email,id,...', Array, NULL, 'email')
+#6 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('email', 'email', 'joshuapecayo25@...', Array, Array, 'email')
+#7 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(1570): CodeIgniter\Validation\Validation->run(Array, NULL, NULL)
+#8 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(807): CodeIgniter\BaseModel->validate(Array)
+#9 C:\xampp\htdocs\ITE311-PECAYO\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, false)
+#10 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#11 C:\xampp\htdocs\ITE311-PECAYO\app\Controllers\Auth.php(63): CodeIgniter\BaseModel->save(Array)
+#12 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(933): App\Controllers\Auth->attemptRegister()
+#13 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#14 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#15 C:\xampp\htdocs\ITE311-PECAYO\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#16 C:\xampp\htdocs\ITE311-PECAYO\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#17 C:\xampp\htdocs\ITE311-PECAYO\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#18 {main}
+CRITICAL - 2025-09-05 11:01:24 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: NO)
+[Method: POST, Route: register]
+in SYSTEMPATH\Database\BaseConnection.php on line 465.
+ 1 SYSTEMPATH\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `users`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('joshuapecayo25@gmail.com', 'users.email,id,{id}', [...])
+ 5 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('joshuapecayo25@gmail.com', 'users.email,id,{id}', [...], null, 'email')
+ 6 SYSTEMPATH\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('email', 'email', 'joshuapecayo25@gmail.com', [...], [...], 'email')
+ 7 SYSTEMPATH\BaseModel.php(1570): CodeIgniter\Validation\Validation->run([...], null, null)
+ 8 SYSTEMPATH\BaseModel.php(807): CodeIgniter\BaseModel->validate([...])
+ 9 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], false)
+10 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+11 APPPATH\Controllers\Auth.php(63): CodeIgniter\BaseModel->save([...])
+12 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->attemptRegister()
+13 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+14 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-09-05 11:02:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:02:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:03:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:03:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:05:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:05:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:05:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:05:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:08:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:08:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:08:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:08:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:08:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:08:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:09:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:09:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:09:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:09:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:09:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:09:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-05 11:09:49 --> CSRF token verified.
+ERROR - 2025-09-05 11:09:49 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in C:\xampp\htdocs\ITE311-PECAYO\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-PECAYO\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'lms_pecayo', 3306, '', 0)
+#1 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('joshuapecayo25@...', 'users.email,id,...', Array)
+#6 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('joshuapecayo25@...', 'users.email,id,...', Array, NULL, 'email')
+#7 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('email', 'email', 'joshuapecayo25@...', Array, Array, 'email')
+#8 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(1570): CodeIgniter\Validation\Validation->run(Array, NULL, NULL)
+#9 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(807): CodeIgniter\BaseModel->validate(Array)
+#10 C:\xampp\htdocs\ITE311-PECAYO\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, false)
+#11 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#12 C:\xampp\htdocs\ITE311-PECAYO\app\Controllers\Auth.php(63): CodeIgniter\BaseModel->save(Array)
+#13 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(933): App\Controllers\Auth->attemptRegister()
+#14 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#15 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#16 C:\xampp\htdocs\ITE311-PECAYO\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#17 C:\xampp\htdocs\ITE311-PECAYO\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#18 C:\xampp\htdocs\ITE311-PECAYO\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#19 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: NO) in C:\xampp\htdocs\ITE311-PECAYO\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('joshuapecayo25@...', 'users.email,id,...', Array)
+#5 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('joshuapecayo25@...', 'users.email,id,...', Array, NULL, 'email')
+#6 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('email', 'email', 'joshuapecayo25@...', Array, Array, 'email')
+#7 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(1570): CodeIgniter\Validation\Validation->run(Array, NULL, NULL)
+#8 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(807): CodeIgniter\BaseModel->validate(Array)
+#9 C:\xampp\htdocs\ITE311-PECAYO\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, false)
+#10 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#11 C:\xampp\htdocs\ITE311-PECAYO\app\Controllers\Auth.php(63): CodeIgniter\BaseModel->save(Array)
+#12 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(933): App\Controllers\Auth->attemptRegister()
+#13 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#14 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#15 C:\xampp\htdocs\ITE311-PECAYO\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#16 C:\xampp\htdocs\ITE311-PECAYO\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#17 C:\xampp\htdocs\ITE311-PECAYO\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#18 {main}
+CRITICAL - 2025-09-05 11:09:49 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: NO)
+[Method: POST, Route: register]
+in SYSTEMPATH\Database\BaseConnection.php on line 465.
+ 1 SYSTEMPATH\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `users`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('joshuapecayo25@gmail.com', 'users.email,id,{id}', [...])
+ 5 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('joshuapecayo25@gmail.com', 'users.email,id,{id}', [...], null, 'email')
+ 6 SYSTEMPATH\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('email', 'email', 'joshuapecayo25@gmail.com', [...], [...], 'email')
+ 7 SYSTEMPATH\BaseModel.php(1570): CodeIgniter\Validation\Validation->run([...], null, null)
+ 8 SYSTEMPATH\BaseModel.php(807): CodeIgniter\BaseModel->validate([...])
+ 9 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], false)
+10 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+11 APPPATH\Controllers\Auth.php(63): CodeIgniter\BaseModel->save([...])
+12 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->attemptRegister()
+13 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+14 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-09-05 11:15:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:15:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:15:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:15:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:15:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:15:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-05 11:15:20 --> CSRF token verified.
+ERROR - 2025-09-05 11:15:20 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in C:\xampp\htdocs\ITE311-PECAYO\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-PECAYO\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'lms_pecayo', 3306, '', 0)
+#1 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('joshuapecayo25@...', 'users.email,id,...', Array)
+#6 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('joshuapecayo25@...', 'users.email,id,...', Array, NULL, 'email')
+#7 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('email', 'email', 'joshuapecayo25@...', Array, Array, 'email')
+#8 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(1570): CodeIgniter\Validation\Validation->run(Array, NULL, NULL)
+#9 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(807): CodeIgniter\BaseModel->validate(Array)
+#10 C:\xampp\htdocs\ITE311-PECAYO\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, false)
+#11 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#12 C:\xampp\htdocs\ITE311-PECAYO\app\Controllers\Auth.php(63): CodeIgniter\BaseModel->save(Array)
+#13 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(933): App\Controllers\Auth->attemptRegister()
+#14 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#15 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#16 C:\xampp\htdocs\ITE311-PECAYO\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#17 C:\xampp\htdocs\ITE311-PECAYO\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#18 C:\xampp\htdocs\ITE311-PECAYO\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#19 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: NO) in C:\xampp\htdocs\ITE311-PECAYO\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('joshuapecayo25@...', 'users.email,id,...', Array)
+#5 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('joshuapecayo25@...', 'users.email,id,...', Array, NULL, 'email')
+#6 C:\xampp\htdocs\ITE311-PECAYO\system\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('email', 'email', 'joshuapecayo25@...', Array, Array, 'email')
+#7 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(1570): CodeIgniter\Validation\Validation->run(Array, NULL, NULL)
+#8 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(807): CodeIgniter\BaseModel->validate(Array)
+#9 C:\xampp\htdocs\ITE311-PECAYO\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, false)
+#10 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#11 C:\xampp\htdocs\ITE311-PECAYO\app\Controllers\Auth.php(63): CodeIgniter\BaseModel->save(Array)
+#12 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(933): App\Controllers\Auth->attemptRegister()
+#13 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#14 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#15 C:\xampp\htdocs\ITE311-PECAYO\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#16 C:\xampp\htdocs\ITE311-PECAYO\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#17 C:\xampp\htdocs\ITE311-PECAYO\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#18 {main}
+CRITICAL - 2025-09-05 11:15:20 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: NO)
+[Method: POST, Route: register]
+in SYSTEMPATH\Database\BaseConnection.php on line 465.
+ 1 SYSTEMPATH\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `users`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('joshuapecayo25@gmail.com', 'users.email,id,{id}', [...])
+ 5 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('joshuapecayo25@gmail.com', 'users.email,id,{id}', [...], null, 'email')
+ 6 SYSTEMPATH\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('email', 'email', 'joshuapecayo25@gmail.com', [...], [...], 'email')
+ 7 SYSTEMPATH\BaseModel.php(1570): CodeIgniter\Validation\Validation->run([...], null, null)
+ 8 SYSTEMPATH\BaseModel.php(807): CodeIgniter\BaseModel->validate([...])
+ 9 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], false)
+10 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+11 APPPATH\Controllers\Auth.php(63): CodeIgniter\BaseModel->save([...])
+12 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->attemptRegister()
+13 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+14 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-09-05 11:15:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:15:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-05 11:15:30 --> CSRF token verified.
+ERROR - 2025-09-05 11:15:30 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in C:\xampp\htdocs\ITE311-PECAYO\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-PECAYO\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'lms_pecayo', 3306, '', 0)
+#1 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ITE311-PECAYO\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(715): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\ITE311-PECAYO\app\Controllers\Auth.php(32): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(933): App\Controllers\Auth->attemptLogin()
+#8 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#9 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ITE311-PECAYO\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\ITE311-PECAYO\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\ITE311-PECAYO\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: NO) in C:\xampp\htdocs\ITE311-PECAYO\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\ITE311-PECAYO\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\ITE311-PECAYO\system\BaseModel.php(715): CodeIgniter\Model->doFirst()
+#5 C:\xampp\htdocs\ITE311-PECAYO\app\Controllers\Auth.php(32): CodeIgniter\BaseModel->first()
+#6 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(933): App\Controllers\Auth->attemptLogin()
+#7 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#8 C:\xampp\htdocs\ITE311-PECAYO\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-PECAYO\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-PECAYO\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-PECAYO\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-09-05 11:15:30 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: NO)
+[Method: POST, Route: login]
+in SYSTEMPATH\Database\BaseConnection.php on line 465.
+ 1 SYSTEMPATH\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(715): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Auth.php(32): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->attemptLogin()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-09-05 11:17:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:17:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:17:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-05 11:17:45 --> CSRF token verified.
+DEBUG - 2025-09-05 11:17:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:17:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-05 11:17:52 --> CSRF token verified.
+DEBUG - 2025-09-05 11:17:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:17:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:39:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:39:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:40:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:40:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:40:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:43:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:44:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:44:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:44:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:44:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:44:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:44:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:45:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:45:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:45:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:46:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:46:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:47:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:47:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:47:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:47:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:47:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:47:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:47:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:47:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:47:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:48:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:48:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:48:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:48:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:48:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:48:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:48:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:48:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:48:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:48:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:49:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:49:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-05 11:50:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
