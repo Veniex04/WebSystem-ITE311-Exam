@@ -21,6 +21,5 @@
 <?= $this->section('content') ?>
 
 <h1>About Us</h1>
-<p>This page gives information about our website, its purpose, and features.</p>
 
 <?= $this->endSection() ?>

@@ -25,7 +25,5 @@
 <?= $this->section('content') ?>
 
 <h1>Contact Us</h1>
-<p>We'd love to hear from you! You can reach us at:</p>
-<p><strong>joshpecayooo@gmail.com</strong></p>
 
 <?= $this->endSection() ?>
