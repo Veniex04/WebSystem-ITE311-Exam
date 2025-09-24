@@ -2,74 +2,97 @@
 
 namespace App\Controllers;
 
-use App\Models\UserModel;
+use App\Models\UserModel; 
+use CodeIgniter\Controller;
 
-class Auth extends BaseController
+class Auth extends Controller
 {
-    protected $helpers = ['form', 'url'];
-    private UserModel $users;
-
-    public function __construct()
+    public function register()
     {
-        $this->users = new UserModel();
+        helper(['form']);
+        return view('auth/register');
+    }
+
+    public function handleRegister()
+    {
+        helper(['form']);
+        $session   = session();
+        $userModel = new UserModel();
+
+        $rules = [
+            'name'              => 'required|min_length[3]',
+            'email'             => 'required|valid_email|is_unique[users.email]',
+            'password'          => 'required|min_length[6]',
+            'password_confirm'  => 'matches[password]'
+        ];
+
+        if (!$this->validate($rules)) {
+            return view('auth/register', [
+                'validation' => $this->validator
+            ]);
+        }
+
+        $userModel->save([
+            'name'     => $this->request->getVar('name'),
+            'email'    => $this->request->getVar('email'),
+            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+            'role'     => 'user',
+        ]);
+
+        $session->setFlashdata('success', 'Registration successful. Please login.');
+        return redirect()->to('login');
     }
 
     public function login()
     {
-        // If already logged in, go straight to dashboard
-        if (session()->get('logged_in')) {
-            return redirect()->to('/dashboard');
-        }
-
+        helper(['form']);
         return view('auth/login');
     }
 
-    public function attemptLogin()
+    public function handleLogin()
     {
-        $email    = trim($this->request->getPost('email'));
-        $password = (string) $this->request->getPost('password');
+        helper(['form']);
+        $session   = session();
+        $userModel = new UserModel();
 
-        $user = $this->users->where('email', $email)->first();
+        $rules = [
+            'email'    => 'required|valid_email',
+            'password' => 'required|min_length[6]',
+        ];
 
-        if (!$user || !password_verify($password, $user['password'])) {
-            return redirect()->back()->with('error', 'Invalid email or password.')->withInput();
+        if (!$this->validate($rules)) {
+            return view('auth/login', ['validation' => $this->validator]);
         }
 
-        // Save minimal session
-        session()->set([
-            'user_id'   => $user['id'],
-            'user_name' => $user['name'],
-            'user_role' => $user['role'],
-            'logged_in' => true,
-        ]);
+        $user = $userModel->where('email', $this->request->getVar('email'))->first();
 
-        return redirect()->to('/dashboard');
-    }
-
-    public function register()
-    {
-        return view('auth/register');
-    }
-
-    public function attemptRegister()
-    {
-        $data = $this->request->getPost([
-            'name', 'email', 'password', 'role'
-        ]);
-
-        // Hash password before save
-        $data['password'] = password_hash((string)$data['password'], PASSWORD_DEFAULT);
-
-        if (!$this->users->save($data)) {
-            return redirect()->back()->with('errors', $this->users->errors())->withInput();
+        if ($user && password_verify($this->request->getVar('password'), $user['password'])) {
+            $session->set([
+                'userID'    => $user['id'],   
+                'name'      => $user['name'],
+                'email'     => $user['email'],
+                'role'      => $user['role'],
+                'isLoggedIn'=> true
+            ]);
+            $session->setFlashdata('success', 'Welcome ' . $user['name']);
+            return redirect()->to('dashboard');
         }
 
-        return redirect()->to('/login')->with('success', 'Account created. Please log in.');
+        $session->setFlashdata('error', 'Invalid login credentials');
+        return redirect()->back();
     }
 
     public function logout()
     {
         session()->destroy();
-        return redirect()->to('/login');
+        return redirect()->to('login');
+    }
+
+    public function dashboard()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('login');
+        }
+        return view('dashboard/index');
     }
 }
