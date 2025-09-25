@@ -20,15 +20,15 @@ class Auth extends Controller
                 ];
 
                 if ($this->validate($rules)) {
-                    $userModel = new \App\Models\UserModel();
+                    $userModel = new UserModel();
                     $userModel->save([
-                        'name'     => $this->request->getVar('name'),
-                        'email'    => $this->request->getVar('email'),
-                        'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+                        'name'     => $this->request->getPost('name'),
+                        'email'    => $this->request->getPost('email'),
+                        'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
                         'role'     => 'student'
                     ]);
 
-                    return redirect()->to('/login')->with('success', 'Registration successful.');
+                    return redirect()->to('/login');
                 } else {
                     return view('auth/register', ['validation' => $this->validator]);
                 }
@@ -54,24 +54,17 @@ class Auth extends Controller
                 return view('auth/login', ['validation' => $this->validator]);
             }
 
-            $user = $userModel->where('email', $this->request->getVar('email'))->first();
+            $user = $userModel->where('email', $this->request->getPost('email'))->first();
 
-            if ($user && password_verify($this->request->getVar('password'), $user['password'])) {
+            if ($user && password_verify($this->request->getPost('password'), $user['password'])) {
                 $session->set([
                     'userID'    => $user['id'],
                     'name'      => $user['name'],
-                    'email'    => $user['email'],
+                    'email'     => $user['email'],
                     'role'      => $user['role'],
                     'isLoggedIn'=> true
                 ]);
-                $role = strtolower($user['role']);
-                if ($role === 'admin') {
-                    return redirect()->to('/admin/dashboard');
-                } elseif ($role === 'teacher') {
-                    return redirect()->to('/teacher/dashboard');
-                } else {
-                    return redirect()->to('/student/dashboard');
-                }
+                return redirect()->to('/dashboard');
             }
 
             $session->setFlashdata('error', 'Invalid login credentials');
@@ -92,6 +85,20 @@ class Auth extends Controller
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('login');
         }
-        return view('dashboard/index');
+
+        $session = session();
+        $role = $session->get('role');
+
+        $userModel = new UserModel();
+
+        $data = ['role' => $role];
+
+        if ($role === 'admin') {
+            $data['totalUsers'] = $userModel->countAllResults();
+        }
+
+        return view('templates/header', $data)
+            . view('auth/dashboard')
+            . view('templates/footer');
     }
 }
