@@ -67,7 +67,7 @@
                 <a href="<?= site_url('register') ?>">Don’t have an account? Register</a>
             </div>
         </form>
-    </div>
+    </div> 
 </div>
 </body>
 </html>
