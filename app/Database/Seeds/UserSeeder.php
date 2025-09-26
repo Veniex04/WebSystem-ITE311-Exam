@@ -25,7 +25,7 @@ public function run()
             'name' => 'Jim Teacher',
             'email' => 'teacher@lms.com',
             'password' => password_hash('teacher123', PASSWORD_DEFAULT),
-            'role' => 'instructor'
+            'role' => 'teacher'
         ]
     ];
 

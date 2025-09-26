@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\UserModel; 
+use App\Models\UserModel;
 use CodeIgniter\Controller;
 
 class Auth extends Controller
@@ -37,7 +37,7 @@ class Auth extends Controller
             return view('auth/register');
     }
 
-    public function login()
+     public function login()
     {
         helper(['form']);
 
@@ -74,16 +74,18 @@ class Auth extends Controller
         return view('auth/login');
     }
 
+    // 3) logout
     public function logout()
     {
         session()->destroy();
-        return redirect()->to('login');
+        return redirect()->to('/login');
     }
 
+    // 4) dashboard
     public function dashboard()
     {
         if (!session()->get('isLoggedIn')) {
-            return redirect()->to('login');
+            return redirect()->to('/login');
         }
 
         $session = session();
@@ -94,11 +96,9 @@ class Auth extends Controller
         $data = ['role' => $role];
 
         if ($role === 'admin') {
-            $data['totalUsers'] = $userModel->countAllResults();
+            $data['totalUsers'] = $userModel->countAll();
         }
 
-        return view('templates/header', $data)
-            . view('auth/dashboard')
-            . view('templates/footer');
+        return view('templates/header', $data) . view('auth/dashboard', $data);
     }
 }

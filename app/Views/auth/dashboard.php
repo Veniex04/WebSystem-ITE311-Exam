@@ -96,7 +96,7 @@
 <!-- Content -->
 <div class="container">
   <div class="content-wrapper">
-      <h2 class="fw-bold">Welcome, <?= esc($user_name ?? session('user_name') ?? 'Guest') ?> 🎉</h2>
+      <h2 class="fw-bold">Welcome, <?= esc($user_name ?? session('name')) ?> 🎉</h2>
       <p class="text-muted">
           Your role:
           <?php
