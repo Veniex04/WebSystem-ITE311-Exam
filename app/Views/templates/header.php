@@ -7,34 +7,26 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-  <div class="container-fluid">
-    <div class="navbar-brand">ITE311</div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
+<nav class="navbar navbar-expand-lg shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="<?= base_url('/') ?>"><i class="bi bi-speedometer2"></i> Dashboard</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon text-light"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-
-        <?php if ($role === 'admin'): ?>
-          <li class="nav-item"><a class="nav-link" href="<?= base_url('auth/dashboard') ?>">Dashboard</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Manage Users</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Manage Courses</a></li>
-
-        <?php elseif ($role === 'teacher'): ?>
-          <li class="nav-item"><a class="nav-link" href="<?= base_url('auth/dashboard') ?>">Dashboard</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">New Courses</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Assignments Notifications</a></li>
-
-        <?php elseif ($role === 'student'): ?>
-          <li class="nav-item"><a class="nav-link" href="<?= base_url('auth/dashboard') ?>">Dashboard</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">My Classes</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">My Grades</a></li>
+        <li class="nav-item"><a class="nav-link active" href="<?= site_url('dashboard') ?>"><i class="bi bi-house-door-fill"></i> Dashboard</a></li>
+        
+        <?php if (isset($role) && $role === 'admin'): ?>
+            <li class="nav-item"><a class="nav-link" href="<?= site_url('admin/users') ?>"><i class="bi bi-people-fill"></i> Manage Users</a></li>
+        <?php elseif (isset($role) && $role === 'teacher'): ?>
+            <li class="nav-item"><a class="nav-link" href="<?= site_url('teacher/classes') ?>"><i class="bi bi-journal-bookmark-fill"></i> My Classes</a></li>
+        <?php else: ?>
+            <li class="nav-item"><a class="nav-link" href="<?= site_url('student/courses') ?>"><i class="bi bi-book-fill"></i> My Courses</a></li>
         <?php endif; ?>
 
-        <li class="btn btn-danger btn-sm py-0 px-0"><a class="nav-link" href="<?= base_url('logout') ?>">Logout</a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= site_url('logout') ?>"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
       </ul>
     </div>
   </div>

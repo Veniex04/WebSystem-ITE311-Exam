@@ -6,7 +6,7 @@ use CodeIgniter\Config\BaseConfig;
 
 class App extends BaseConfig
 {
-    /**  
+    /**
      * --------------------------------------------------------------------------
      * Base Site URL
      * --------------------------------------------------------------------------
@@ -15,9 +15,8 @@ class App extends BaseConfig
      * WITH a trailing slash:
      *
      * E.g., http://example.com/
-     */ 
+     */
     public string $baseURL = 'http://localhost/ITE311-PECAYO/';
-
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
