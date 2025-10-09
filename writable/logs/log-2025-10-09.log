@@ -1,0 +1,15 @@
+ERROR - 2025-10-09 14:52:24 --> mysqli_sql_exception: Key column 'user_id' doesn't exist in table in C:\xampp\htdocs\ITE311-PECAYO\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-PECAYO\system\Database\MySQLi\Connection.php(327): mysqli->query('ALTER TABLE `en...', 0)
+#1 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE `en...')
+#2 C:\xampp\htdocs\ITE311-PECAYO\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE `en...')
+#3 C:\xampp\htdocs\ITE311-PECAYO\app\Database\Migrations\2025-10-09-145119_CreateEnrollmentsTable.php(41): CodeIgniter\Database\BaseConnection->query('ALTER TABLE `en...')
+#4 C:\xampp\htdocs\ITE311-PECAYO\system\Database\MigrationRunner.php(876): App\Database\Migrations\CreateEnrollmentsTable->up()
+#5 C:\xampp\htdocs\ITE311-PECAYO\system\Database\MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#6 C:\xampp\htdocs\ITE311-PECAYO\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\ITE311-PECAYO\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\ITE311-PECAYO\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\ITE311-PECAYO\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#10 C:\xampp\htdocs\ITE311-PECAYO\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#11 C:\xampp\htdocs\ITE311-PECAYO\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#12 {main}
