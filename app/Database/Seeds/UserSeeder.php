@@ -3,33 +3,39 @@
 namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
+use App\Models\UserModel;
 
 class UserSeeder extends Seeder
 {
-public function run()
-{
-    $data = [
-        [
-            'name' => 'Admin User',
-            'email' => 'admin@lms.com',
-            'password' => password_hash('admin123', PASSWORD_DEFAULT),
-            'role' => 'admin'
-        ],
-        [
-            'name' => 'Josh Student',
-            'email' => 'student@lms.com',
-            'password' => password_hash('student123', PASSWORD_DEFAULT),
-            'role' => 'student'
-        ],
-        [
-            'name' => 'Jim Teacher',
-            'email' => 'teacher@lms.com',
-            'password' => password_hash('teacher123', PASSWORD_DEFAULT),
-            'role' => 'teacher'
-        ]
-    ];
+    public function run()
+    {
+        $model = new UserModel();
 
-    $this->db->table('users')->insertBatch($data);
-}
+        $users = [
+            [
+                'name'     => 'Admin User',
+                'email'    => 'admin@example.com',
+                'password' => password_hash('admin123', PASSWORD_DEFAULT), // ✅ hashed password
+                'role'     => 'admin'
+            ],
+            [
+                'name'     => 'Teacher User',
+                'email'    => 'teacher@example.com',
+                'password' => password_hash('teacher123', PASSWORD_DEFAULT), // ✅ hashed password
+                'role'     => 'teacher'
+            ],
+            [
+                'name'     => 'Student User',
+                'email'    => 'student@example.com',
+                'password' => password_hash('student123', PASSWORD_DEFAULT), // ✅ hashed password
+                'role'     => 'student'
+            ],
+        ];
 
+        foreach ($users as $user) {
+            $model->skipValidation(true)->save($user);
+        }
+
+        echo "Users seeded successfully!";
+    }
 }

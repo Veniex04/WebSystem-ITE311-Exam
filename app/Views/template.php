@@ -56,13 +56,54 @@
       margin-right: 5px;
     }
 
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 70px 20px; /* reduced from 120px to 70px */
+      color: #fff;
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      border-radius: 0 0 25px 25px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .hero h1 {
+      font-size: 2.4rem; /* smaller and balanced */
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+
     /* Content Wrapper */
     .content-wrapper {
-      margin-top: 30px;
+      margin-top: 40px;
       padding: 30px;
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    footer {
+      margin-top: 60px;
+      background: rgba(33, 37, 41, 0.95);
+      color: #bbb;
+      padding: 25px 0;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: #f8f9fa;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #dc2743;
     }
   </style>
 </head>
@@ -80,7 +121,6 @@
         <li class="nav-item">
           <a class="nav-link <?= service('uri')->getSegment(1)==''?'active':'' ?>" href="<?= base_url('/') ?>"><i class="bi bi-house-door-fill"></i>Home</a>
         </li>
-        
         <li class="nav-item">
           <a class="nav-link <?= service('uri')->getSegment(1)=='about'?'active':'' ?>" href="<?= base_url('about') ?>"><i class="bi bi-info-circle-fill"></i>About</a>
         </li>
@@ -90,7 +130,6 @@
 
         <?php $logged = session()->get('isLoggedIn'); ?>
         <?php if ($logged): ?>
-          <!-- Profile Dropdown -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
               <i class="bi bi-person-circle"></i>Profile
@@ -111,6 +150,14 @@
   </div>
 </nav>
 
+<!-- Hero Section -->
+<div class="hero">
+  <div class="container">
+    <h1>Welcome to LMS</h1>
+    <p>Empowering Learning Through Technology</p>
+  </div>
+</div>
+
 <!-- Content Wrapper -->
 <div class="container">
   <div class="content-wrapper">
@@ -124,6 +171,17 @@
     <?= $this->renderSection('content') ?>
   </div>
 </div>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>&copy; <?= date('Y') ?> LMS — All Rights Reserved.</p>
+    <div>
+      <a href="<?= base_url('privacy') ?>">Privacy Policy</a> | 
+      <a href="<?= base_url('terms') ?>">Terms of Service</a>
+    </div>
+  </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

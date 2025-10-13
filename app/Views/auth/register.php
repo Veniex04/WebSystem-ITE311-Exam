@@ -5,28 +5,76 @@
     <title>Register - LMS</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <style>
-        body { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); min-height:100vh; display:flex; align-items:center; justify-content:center; font-family:'Segoe UI',Tahoma,Verdana,sans-serif; }
-        .card{ border:none; border-radius:18px; box-shadow:0 8px 24px rgba(0,0,0,0.2); background:#fff; }
-        .btn-gradient{ background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); border:none; color:#fff; font-weight:600; transition:opacity .3s; }
-        .btn-gradient:hover{ opacity:.9; }
-        a{ text-decoration:none; color:#cc2366; font-weight:500; }
-        a:hover{ color:#dc2743; }
+        body {
+            background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .card {
+            border: none;
+            border-radius: 18px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            background: #fff;
+            padding: 2rem;
+        }
+        h3 {
+            font-weight: 700;
+            color: #333;
+        }
+        .text-muted {
+            color: #6c757d !important;
+        }
+        .form-label {
+            font-weight: 500;
+            color: #333;
+        }
+        .form-control {
+            border-radius: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .btn-gradient {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            border: none;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: opacity 0.3s;
+        }
+        .btn-gradient:hover {
+            opacity: 0.9;
+        }
+        a {
+            text-decoration: none;
+            color: #cc2366;
+            font-weight: 500;
+        }
+        a:hover {
+            color: #dc2743;
+        }
+        .alert {
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
+
 <div class="container" style="max-width:480px;">
-    <div class="card p-4">
+    <div class="card">
         <h3 class="mb-2 text-center fw-bold">Create Account</h3>
         <p class="text-muted text-center mb-4">Join us today and get started</p>
 
-        <?php if(isset($validation) && $validation->getErrors()): ?>
+        <?php if (isset($validation) && $validation->getErrors()): ?>
             <div class="alert alert-danger"><?= $validation->listErrors() ?></div>
         <?php endif; ?>
 
-        <?php if(session()->getFlashdata('success')): ?>
+        <?php if (session()->getFlashdata('success')): ?>
             <div class="alert alert-success"><?= esc(session()->getFlashdata('success')) ?></div>
         <?php endif; ?>
-        <?php if(session()->getFlashdata('error')): ?>
+        <?php if (session()->getFlashdata('error')): ?>
             <div class="alert alert-danger"><?= esc(session()->getFlashdata('error')) ?></div>
         <?php endif; ?>
 
@@ -53,8 +101,6 @@
                 <input name="password_confirm" type="password" class="form-control" required>
             </div>
 
-            <!-- optional role select; controller will default to 'student' if not selected -->
-
             <button class="btn btn-gradient w-100" type="submit">Register</button>
 
             <div class="text-center mt-3">
@@ -63,5 +109,6 @@
         </form>
     </div>
 </div>
+
 </body>
 </html>

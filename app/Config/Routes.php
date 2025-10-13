@@ -24,4 +24,9 @@ $routes->get('admin/dashboard', 'Admin::dashboard');
 $routes->get('teacher/dashboard', 'Teacher::dashboard');
 $routes->get('student/dashboard', 'Student::dashboard');
 
+// Course enrollment routes
 $routes->post('course/enroll', 'Course::enroll');
+$routes->get('course/myEnrollments', 'Course::myEnrollments');
+$routes->get('course/available', 'Course::available');
+$routes->post('course/cancelEnrollment', 'Course::cancelEnrollment');
+$routes->get('course/enrollmentStats', 'Course::enrollmentStats');
