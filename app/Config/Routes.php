@@ -33,6 +33,18 @@ $routes->get('dashboard', 'Auth::dashboard');
 $routes->post('/course/enroll', 'Course::enroll');
 $routes->match(['get', 'post'], 'dashboard', 'Auth::dashboard');
 
+// ✅ Announcements route
+$routes->get('announcements', 'Announcement::index');
+
+// ✅ Role-based dashboard routes with authorization
+$routes->group('teacher', ['filter' => 'roleauth'], function($routes) {
+    $routes->get('dashboard', 'Teacher::dashboard');
+});
+
+$routes->group('admin', ['filter' => 'roleauth'], function($routes) {
+    $routes->get('dashboard', 'Admin::dashboard');
+});
+
 
 
 
