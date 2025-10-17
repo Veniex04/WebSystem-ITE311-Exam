@@ -51,7 +51,18 @@ class Auth extends BaseController
                 'logged_in' => true,
             ]);
 
-            return redirect()->to('/dashboard')->with('success', 'You have successfully logged in.');
+            // Role-based redirection
+            $userRole = strtolower($user['role']);
+            switch ($userRole) {
+                case 'student':
+                    return redirect()->to('/announcements')->with('success', 'You have successfully logged in.');
+                case 'teacher':
+                    return redirect()->to('/teacher/dashboard')->with('success', 'You have successfully logged in.');
+                case 'admin':
+                    return redirect()->to('/admin/dashboard')->with('success', 'You have successfully logged in.');
+                default:
+                    return redirect()->to('/announcements')->with('success', 'You have successfully logged in.');
+            }
         }
     }
 
