@@ -15,71 +15,72 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
+        :root{
+            --inst-1: #f09433;
+            --inst-2: #e6683c;
+            --inst-3: #dc2743;
+            --inst-4: #cc2366;
+            --inst-5: #bc1888;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa;
+            background-color: #f3f6f9;
+            margin-bottom: 60px;
         }
 
         /* Navbar with Instagram gradient */
-        .navbar {
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        .topbar {
+            background: linear-gradient(45deg, var(--inst-1), var(--inst-2), var(--inst-3), var(--inst-4), var(--inst-5));
+            color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            margin-bottom: 24px;
         }
 
-        .navbar-brand,  
-        .nav-link,
-        .dropdown-item {
-            color: white !important;
-        }
-
-        .nav-link:hover,
-        .dropdown-item:hover {
-            color: #ffd1dc !important;
-        }
-
-        .dropdown-menu {
-            background-color: #cc2366;
-            border: none;
-        }
-
-        .navbar-toggler {
-            background-color: white;
-        }
-
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.6rem;
+        .topbar .brand {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #fff;
+            text-decoration: none;
         }
 
         .content-wrapper {
-            margin-top: 30px;
-            padding: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 22px;
             background: #fff;
             border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.05);
         }
 
-        .card {
-            border: none;
-            border-radius: 16px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-            transition: transform 0.2s ease-in-out;
+        .welcome-row {
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap: 16px;
+            flex-wrap:wrap;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
+        .welcome {
+            display:flex;
+            align-items: center;
+            gap: 14px;
         }
 
-        .card h5 {
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .stat-icon {
-            font-size: 2rem;
-            color: #dc2743;
+        .avatar {
+            width:64px;
+            height:64px;
+            border-radius:12px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0.1));
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:1.5rem;
+            color:#fff;
         }
 
         .role-badge {
@@ -87,605 +88,428 @@
             padding: 6px 12px;
             color: white;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         .role-admin { background: #9b1b6f; }
         .role-teacher { background: #cc5a3c; }
         .role-student { background: #3b82f6; }
 
-        /* Course Cards */
-        .course-card {
-            border: 1px solid #e9ecef;
+        .stat-card {
+            border: none;
             border-radius: 12px;
-            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            transition: transform .18s ease;
+        }
+        .stat-card:hover { transform: translateY(-6px); }
+
+        .stat-icon {
+            font-size: 1.6rem;
+            color: var(--inst-3);
+        }
+
+        .course-card {
+            border: 1px solid #eef2f7;
+            border-radius: 12px;
+            transition: all .2s ease;
             background: #fff;
         }
-
-        .course-card:hover {
-            border-color: #dc2743;
-            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .course-title {
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 8px;
-        }
-
-        .course-description {
-            color: #6c757d;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-        .enrollment-date {
-            font-size: 0.8rem;
-            color: #28a745;
-            font-weight: 500;
+        .course-card:hover{
+            border-color: var(--inst-3);
+            box-shadow: 0 6px 18px rgba(220,39,67,0.06);
+            transform: translateY(-3px);
         }
 
         .btn-enroll {
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743);
+            background: linear-gradient(45deg, var(--inst-1), var(--inst-3));
             border: none;
             color: white;
-            font-weight: 500;
-            transition: all 0.3s ease;
+            font-weight: 600;
         }
 
-        .btn-enroll:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(220, 39, 67, 0.3);
-            color: white;
-        }
-
-        .btn-enroll:disabled {
-            background: #6c757d;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 3rem 1rem;
-            color: #6c757d;
-        }
-
-        .empty-state i {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            opacity: 0.5;
-        }
+        .empty-state { text-align:center; padding:2.5rem 1rem; color:#6c757d; }
 
         .alert {
-            border-radius: 12px;
-            border: none;
+            border-radius: 10px;
         }
 
-        .toast-container {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1055;
+        /* Responsive tweaks */
+        @media (max-width: 767px) {
+            .welcome { flex-direction:column; align-items:flex-start; gap:8px; }
+            .avatar { width:56px; height:56px; }
         }
     </style>
 </head>
 <body>
 
-<!-- Content -->
+<!-- Topbar -->
+<nav class="topbar">
+    <div class="container d-flex align-items-center justify-content-between">
+        <a href="<?= site_url() ?>" class="brand">LMS</a>
+        <div class="d-flex align-items-center gap-3">
+            <a href="<?= site_url('profile') ?>" class="text-white text-decoration-none"><i class="bi bi-person-circle"></i> Profile</a>
+            <a href="<?= site_url('logout') ?>" class="text-white text-decoration-none"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </div>
+    </div>
+</nav>
+
 <div class="container">
-  <div class="content-wrapper">
-      <h2 class="fw-bold">Welcome, <?= esc($user_name ?? session('name')) ?> 🎉</h2>
-      <p class="text-muted">
-          Your role:
-          <?php
-            // display the incoming $role first; fall back to session('user_role')
-            $displayRole = $role ?? session('user_role') ?? 'student';
-          ?>
-          <span class="role-badge <?= $displayRole === 'admin' ? 'role-admin' : ($displayRole === 'teacher' ? 'role-teacher' : 'role-student') ?>">
-              <?= esc($displayRole) ?>
-          </span>
-      </p>
+    <div class="content-wrapper">
 
-      <div class="row mt-4">
-          <!-- Common cards -->
-          <div class="col-md-4">
-              <div class="card p-3 text-center">
-                  <div class="stat-icon mb-2"><i class="bi bi-person-badge-fill"></i></div>
-                  <h5>Profile</h5>
-                  <p class="fs-6 text-muted">View or update profile details</p>
-                  <a href="<?= site_url('profile') ?>" class="btn btn-sm btn-outline-primary">Open</a>
-              </div>
-          </div>
-          <div class="col-md-4">
-              <div class="card p-3 text-center">
-                  <div class="stat-icon mb-2"><i class="bi bi-clipboard-check-fill"></i></div>
-                  <h5>Notifications</h5>
-                  <p class="fs-6 text-muted">See recent notifications</p>
-                  <a href="<?= site_url('notifications') ?>" class="btn btn-sm btn-outline-primary">Open</a>
-              </div>
-          </div>
-          <div class="col-md-4">
-              <div class="card p-3 text-center">
-                  <div class="stat-icon mb-2"><i class="bi bi-gear-fill"></i></div>
-                  <h5>Settings</h5>
-                  <p class="fs-6 text-muted">Account & app settings</p>
-                  <a href="<?= site_url('settings') ?>" class="btn btn-sm btn-outline-primary">Open</a>
-              </div>
-          </div>
-      </div>
-
-      <!-- Role specific content -->
-      <div class="row mt-4">
-        <?php if ($role === 'admin'): ?>
-            <!-- ADMIN SECTION -->
-            <div class="col-12">
-                <div class="card p-3 mb-3">
-                    <h4><i class="bi bi-shield-lock-fill"></i> Admin Panel</h4>
-                    <p class="text-muted">Site-wide management tools and user administration.</p>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="card p-3 text-center">
-                                <div class="stat-icon mb-2"><i class="bi bi-people-fill"></i></div>
-                                <h5>Users</h5>
-                                <p class="fs-4 fw-bold">1,024</p>
-                                <a href="<?= site_url('admin/users') ?>" class="btn btn-sm btn-primary">Manage</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card p-3 text-center">
-                                <div class="stat-icon mb-2"><i class="bi bi-layout-text-window-reverse"></i></div>
-                                <h5>Courses</h5>
-                                <p class="fs-4 fw-bold">230</p>
-                                <a href="<?= site_url('admin/courses') ?>" class="btn btn-sm btn-primary">Manage</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card p-3 text-center">
-                                <div class="stat-icon mb-2"><i class="bi bi-bar-chart-line-fill"></i></div>
-                                <h5>Reports</h5>
-                                <p class="fs-6 text-muted">System analytics & logs</p>
-                                <a href="<?= site_url('admin/reports') ?>" class="btn btn-sm btn-primary">Open</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        <?php elseif ($role === 'teacher'): ?>
-            <!-- TEACHER SECTION -->
-            <div class="col-12">
-                <div class="card p-3 mb-3">
-                    <h4><i class="bi bi-person-workspace"></i> Teacher Panel</h4>
-                    <p class="text-muted">Manage your classes, assignments and student progress.</p>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="card p-3 text-center">
-                                <div class="stat-icon mb-2"><i class="bi bi-journal-check"></i></div>
-                                <h5>My Classes</h5>
-                                <p class="fs-4 fw-bold">5</p>
-                                <a href="<?= site_url('teacher/classes') ?>" class="btn btn-sm btn-primary">Open</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card p-3 text-center">
-                                <div class="stat-icon mb-2"><i class="bi bi-pencil-square"></i></div>
-                                <h5>Assignments</h5>
-                                <p class="fs-4 fw-bold">12</p>
-                                <a href="<?= site_url('teacher/assignments') ?>" class="btn btn-sm btn-primary">Manage</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card p-3 text-center">
-                                <div class="stat-icon mb-2"><i class="bi bi-people"></i></div>
-                                <h5>Students</h5>
-                                <p class="fs-6 text-muted">View enrolled students</p>
-                                <a href="<?= site_url('teacher/students') ?>" class="btn btn-sm btn-primary">Open</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        <?php else: ?>
-            <!-- STUDENT SECTION -->
-            <div class="col-12">
-                <div class="card p-3 mb-3">
-                    <h4><i class="bi bi-mortarboard-fill"></i> Student Panel</h4>
-                    <p class="text-muted">Your courses, assignments and grades.</p>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="card p-3 text-center">
-                                <div class="stat-icon mb-2"><i class="bi bi-book"></i></div>
-                                <h5>Courses</h5>
-                                <p class="fs-4 fw-bold">6</p>
-                                <a href="<?= site_url('student/courses') ?>" class="btn btn-sm btn-primary">View</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card p-3 text-center">
-                                <div class="stat-icon mb-2"><i class="bi bi-file-earmark-text"></i></div>
-                                <h5>Assignments</h5>
-                                <p class="fs-4 fw-bold">8</p>
-                                <a href="<?= site_url('student/assignments') ?>" class="btn btn-sm btn-primary">Open</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card p-3 text-center">
-                                <div class="stat-icon mb-2"><i class="bi bi-award-fill"></i></div>
-                                <h5>Grades</h5>
-                                <p class="fs-6 text-muted">Check your progress</p>
-                                <a href="<?= site_url('student/grades') ?>" class="btn btn-sm btn-primary">View</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ENROLLED COURSES SECTION -->
-            <div class="col-12">
-                <div class="card p-3 mb-3">
-                    <h4><i class="bi bi-bookmark-check-fill"></i> My Enrolled Courses</h4>
-                    <p class="text-muted">Courses you are currently enrolled in.</p>
-                    
-                    <div id="enrolled-courses-container">
-                        <div class="text-center py-4">
-                            <div class="spinner-border text-primary" role="status">
-                                <span class="visually-hidden">Loading...</span>
-                            </div>
-                            <p class="mt-2 text-muted">Loading your courses...</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- AVAILABLE COURSES SECTION -->
-            <div class="col-12">
-                <div class="card p-3 mb-3">
-                    <h4><i class="bi bi-plus-circle-fill"></i> Available Courses</h4>
-                    <p class="text-muted">Discover and enroll in new courses.</p>
-                    
-                    <div id="available-courses-container">
-                        <div class="text-center py-4">
-                            <div class="spinner-border text-primary" role="status">
-                                <span class="visually-hidden">Loading...</span>
-                            </div>
-                            <p class="mt-2 text-muted">Loading available courses...</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        <!-- Flash messages -->
+        <?php if (session()->getFlashdata('success')): ?>
+            <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
         <?php endif; ?>
-      </div>
+        <?php if (session()->getFlashdata('error')): ?>
+            <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
+        <?php endif; ?>
 
-  </div>
+        <!-- Welcome -->
+        <div class="welcome-row mb-4">
+            <div class="welcome">
+                <div class="avatar" style="background: linear-gradient(135deg,var(--inst-4),var(--inst-5));">
+                    <i class="bi bi-laptop"></i>
+                </div>
+                <div>
+                    <h3 class="mb-0 fw-bold">Welcome, <?= esc($user_name ?? session('name') ?? 'User') ?> 🎉</h3>
+                    <?php
+                        $displayRole = $user_role ?? session('user_role') ?? 'student';
+                        $roleClass = $displayRole === 'admin' ? 'role-admin' : ($displayRole === 'teacher' ? 'role-teacher' : 'role-student');
+                    ?>
+                    <p class="mb-0 text-muted">Role: <span class="role-badge <?= $roleClass ?>"><?= ucfirst(esc($displayRole)) ?></span></p>
+                </div>
+            </div>
+
+            <div class="d-flex gap-2">
+                <a href="<?= site_url('profile') ?>" class="btn btn-outline-primary">Profile</a>
+                <a href="<?= site_url('settings') ?>" class="btn btn-outline-secondary">Settings</a>
+            </div>
+        </div>
+
+        <!-- Role-specific quick stats -->
+        <div class="row">
+            <?php if ($displayRole === 'admin'): ?>
+                <div class="col-md-3 mb-3">
+                    <div class="card stat-card p-3 text-center">
+                        <div class="stat-icon mb-1"><i class="bi bi-people-fill"></i></div>
+                        <small class="text-muted">Total Users</small>
+                        <div class="h4 fw-bold mb-0"><?= esc($stats['total_users'] ?? 0) ?></div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card stat-card p-3 text-center">
+                        <div class="stat-icon mb-1"><i class="bi bi-book-half"></i></div>
+                        <small class="text-muted">Total Courses</small>
+                        <div class="h4 fw-bold mb-0"><?= esc($stats['total_courses'] ?? 0) ?></div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card stat-card p-3 text-center">
+                        <div class="stat-icon mb-1"><i class="bi bi-mortarboard-fill"></i></div>
+                        <small class="text-muted">Active Students</small>
+                        <div class="h4 fw-bold mb-0"><?= esc($stats['active_students'] ?? 0) ?></div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card stat-card p-3 text-center">
+                        <div class="stat-icon mb-1"><i class="bi bi-person-badge-fill"></i></div>
+                        <small class="text-muted">Active Teachers</small>
+                        <div class="h4 fw-bold mb-0"><?= esc($stats['active_teachers'] ?? 0) ?></div>
+                    </div>
+                </div>
+
+            <?php elseif ($displayRole === 'teacher'): ?>
+                <div class="col-md-4 mb-3">
+                    <div class="card stat-card p-3 text-center">
+                        <div class="stat-icon mb-1"><i class="bi bi-journal-bookmark-fill"></i></div>
+                        <small class="text-muted">My Courses</small>
+                        <div class="h4 fw-bold mb-0"><?= esc($stats['my_courses'] ?? 0) ?></div>
+                    </div>
+                </div>
+            <?php else: ?>
+                <div class="col-md-6 mb-3">
+                    <div class="card stat-card p-3 text-center">
+                        <div class="stat-icon mb-1"><i class="bi bi-journal-bookmark"></i></div>
+                        <small class="text-muted">My Enrolled Courses</small>
+                        <div class="h4 fw-bold mb-0"><?= esc($stats['my_courses'] ?? 0) ?></div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card stat-card p-3 text-center">
+                        <div class="stat-icon mb-1"><i class="bi bi-clock-history"></i></div>
+                        <small class="text-muted">Upcoming Deadlines</small>
+                        <div class="h4 fw-bold mb-0"><?= esc(isset($deadlines) ? count($deadlines) : 0) ?></div>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+
+        <!-- Main panels -->
+        <div class="row mt-4">
+            <?php if ($displayRole === 'admin'): ?>
+                <!-- Admin System Overview -->
+                <div class="col-12 mb-3">
+                    <div class="card p-3">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <h5 class="mb-0">System Overview</h5>
+                            <small class="text-muted">Manage users and courses</small>
+                        </div>
+
+                        <?php if (!empty($users)): ?>
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Current Role</th>
+                                            <th>Change Role</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($users as $u): ?>
+                                            <tr>
+                                                <td><?= esc($u['name']) ?></td>
+                                                <td><?= esc($u['email']) ?></td>
+                                                <td><strong><?= ucfirst(esc($u['role'])) ?></strong></td>
+                                                <td>
+                                                    <?php if (session()->get('user_id') != $u['id']): ?>
+                                                        <select class="form-select form-select-sm role-select" data-user-id="<?= $u['id'] ?>">
+                                                            <option value="teacher" <?= $u['role'] === 'teacher' ? 'selected' : '' ?>>Teacher</option>
+                                                            <option value="student" <?= $u['role'] === 'student' ? 'selected' : '' ?>>Student</option>
+                                                        </select>
+                                                    <?php else: ?>
+                                                        <em class="text-muted">You</em>
+                                                    <?php endif; ?>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <?php else: ?>
+                            <p class="text-muted mb-0">No users found.</p>
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+            <?php elseif ($displayRole === 'teacher'): ?>
+                <!-- Teacher: Courses & Students -->
+                <div class="col-12 mb-3">
+                    <div class="card p-3">
+                        <h5 class="mb-2">My Courses & Enrolled Students</h5>
+                        <?php if (!empty($courses)): ?>
+                            <div class="table-responsive">
+                                <table class="table table-striped align-middle">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Course Name</th>
+                                            <th>Students Enrolled</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
+                                            $db = \Config\Database::connect();
+                                            foreach ($courses as $index => $c): 
+                                                $courseId = $c['id'];
+                                                $students = $db->table('enrollments')
+                                                    ->select('users.name, users.email')
+                                                    ->join('users', 'users.id = enrollments.user_id')
+                                                    ->where('enrollments.course_id', $courseId)
+                                                    ->get()->getResultArray();
+                                        ?>
+                                            <tr>
+                                                <td><?= $index + 1 ?></td>
+                                                <td><?= esc($c['name'] ?? $c['title'] ?? 'Unnamed Course') ?></td>
+                                                <td><?= count($students) ?></td>
+                                                <td>
+                                                    <?php if (count($students) > 0): ?>
+                                                        <button class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#students-<?= $courseId ?>">View Students</button>
+                                                    <?php else: ?>
+                                                        <span class="text-muted">No Enrolled Students</span>
+                                                    <?php endif; ?>
+                                                </td>
+                                            </tr>
+
+                                            <?php if (count($students) > 0): ?>
+                                                <tr id="students-<?= $courseId ?>" class="collapse bg-light">
+                                                    <td colspan="4">
+                                                        <ul class="mb-0">
+                                                            <?php foreach ($students as $s): ?>
+                                                                <li><?= esc($s['name']) ?> (<?= esc($s['email']) ?>)</li>
+                                                            <?php endforeach; ?>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <?php else: ?>
+                            <p class="text-muted mb-0">No courses found.</p>
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+            <?php else: ?>
+                <!-- Student: Enrolled Courses & Available Courses -->
+                <div class="col-lg-6 mb-3">
+                    <div class="card p-3 h-100">
+                        <h5 class="mb-2">My Enrolled Courses</h5>
+                        <ul class="list-group list-group-flush" id="enrolledCoursesList">
+                            <?php if (!empty($enrolledCourses)): ?>
+                                <?php foreach ($enrolledCourses as $course): ?>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <?= esc($course['title'] ?? $course['name'] ?? 'Unknown Course') ?>
+                                        <small class="text-muted"><?= isset($course['enrollment_date']) ? date('M d, Y', strtotime($course['enrollment_date'])) : '' ?></small>
+                                    </li>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <li class="list-group-item text-muted no-enrollment-msg">You are not enrolled in any course yet.</li>
+                            <?php endif; ?>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-3">
+                    <div class="card p-3 h-100">
+                        <h5 class="mb-2">Available Courses</h5>
+                        <div id="availableCoursesContainer">
+                            <?php if (!empty($courses)): ?>
+                                <div class="row">
+                                    <?php foreach ($courses as $course): ?>
+                                        <div class="col-md-12 mb-2">
+                                            <div class="course-card p-3 d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <div class="course-title fw-semibold"><?= esc($course['title'] ?? $course['name'] ?? 'Unknown Course') ?></div>
+                                                    <div class="text-muted small"><?= esc($course['description'] ?? '') ?></div>
+                                                </div>
+                                                <div>
+                                                    <button class="btn btn-enroll enroll-btn" data-course-id="<?= esc($course['id']) ?>" id="enroll-btn-<?= esc($course['id']) ?>">
+                                                        <i class="bi bi-plus-circle"></i> Enroll
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php else: ?>
+                                <div class="empty-state">
+                                    <i class="bi bi-check-circle" style="font-size:2.2rem;"></i>
+                                    <h5 class="mt-2">No available courses</h5>
+                                    <p class="mb-0">Please check back later.</p>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="alertBox" class="alert mt-3 d-none"></div>
+
+                <div class="col-12">
+                    <div class="alert alert-info mt-2">
+                        Welcome to your student dashboard! Use the navigation above to explore your courses and deadlines.
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
 </div>
 
 <!-- Toast Container -->
-<div class="toast-container"></div>
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1200;"></div>
 
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-$(document).ready(function() {
-    // Only load course data for students
-    <?php if ($displayRole === 'student'): ?>
-    loadEnrolledCourses();
-    loadAvailableCourses();
-    <?php endif; ?>
-
-    // jQuery event delegation for enroll buttons
-    $(document).on('click', '.enroll-btn', function(e) {
+$(function(){
+    // Enroll AJAX (jQuery)
+    $(document).on('click', '.enroll-btn', function(e){
         e.preventDefault();
-        e.stopPropagation();
-        
-        const courseId = $(this).data('course-id');
-        const $button = $(this);
-        
-        if (courseId) {
-            enrollInCourseWithJQuery(courseId, $button);
-        }
+        const $btn = $(this);
+        const courseId = $btn.data('course-id');
+        if (!courseId) return;
+
+        const original = $btn.html();
+        $btn.prop('disabled', true).html('<i class="bi bi-hourglass-split"></i> Enrolling...');
+
+        $.ajax({
+            url: "<?= base_url('course/enroll') ?>",
+            method: "POST",
+            data: {
+                course_id: courseId,
+                <?= csrf_token() ?>: "<?= csrf_hash() ?>"
+            },
+            dataType: "json"
+        }).done(function(res){
+            if (res.status === 'success' || res.status === true) {
+                showBootstrapAlert('success', 'Success!', res.message || 'Enrolled successfully.');
+                // disable/hide button
+                $btn.hide();
+                // update enrolled list UI
+                $('#enrolledCoursesList').find('.no-enrollment-msg').remove();
+                $('#enrolledCoursesList').append('<li class="list-group-item d-flex justify-content-between align-items-center">' + escapeHtml(res.course_title || 'New Course') + '<small class="text-muted">' + (res.enrollment_date ? res.enrollment_date : '') + '</small></li>');
+            } else {
+                showBootstrapAlert('danger', 'Error', res.message || 'Failed to enroll.');
+                $btn.prop('disabled', false).html(original);
+            }
+        }).fail(function(){
+            showBootstrapAlert('danger', 'Error', 'Server error. Please try again.');
+            $btn.prop('disabled', false).html(original);
+        });
+    });
+
+    // Role change (Admin)
+    $(document).on('change', '.role-select', function(){
+        const $sel = $(this);
+        const userId = $sel.data('user-id');
+        const newRole = $sel.val();
+        const $row = $sel.closest('tr');
+
+        $.ajax({
+            url: "<?= base_url('dashboard') ?>",
+            method: "POST",
+            data: {
+                id: userId,
+                role: newRole,
+                <?= csrf_token() ?>: "<?= csrf_hash() ?>"
+            },
+            dataType: "json"
+        }).done(function(res){
+            if (res.status === 'success' || res.status === true) {
+                $row.find('td:nth-child(3)').html('<strong>' + capitalize(newRole) + '</strong>');
+                showBootstrapAlert('success', 'Updated', 'Role updated successfully.');
+            } else {
+                showBootstrapAlert('danger', 'Error', res.message || 'Failed to update role.');
+            }
+        }).fail(function(){
+            showBootstrapAlert('danger', 'Error', 'Server error. Please try again.');
+        });
     });
 });
 
-// Load enrolled courses
-function loadEnrolledCourses() {
-    fetch('<?= site_url('course/myEnrollments') ?>', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest'
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        const container = document.getElementById('enrolled-courses-container');
-        
-        if (data.status && data.data.length > 0) {
-            container.innerHTML = `
-                <div class="row">
-                    ${data.data.map(course => `
-                        <div class="col-md-6 col-lg-4 mb-3">
-                            <div class="course-card p-3 h-100">
-                                <div class="course-title">${escapeHtml(course.title)}</div>
-                                <div class="course-description mb-2">${escapeHtml(course.description || 'No description available')}</div>
-                                <div class="enrollment-date mb-3">
-                                    <i class="bi bi-calendar-check"></i> 
-                                    Enrolled: ${formatDate(course.enrollment_date)}
-                                </div>
-                                <div class="d-flex gap-2">
-                                    <a href="<?= site_url('course/view') ?>/${course.course_id}" class="btn btn-sm btn-outline-primary flex-fill">
-                                        <i class="bi bi-eye"></i> View Course
-                                    </a>
-                                    <button class="btn btn-sm btn-outline-danger" onclick="cancelEnrollment(${course.course_id})">
-                                        <i class="bi bi-x-circle"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-        } else {
-            container.innerHTML = `
-                <div class="empty-state">
-                    <i class="bi bi-book"></i>
-                    <h5>No Enrolled Courses</h5>
-                    <p>You haven't enrolled in any courses yet. Check out the available courses below!</p>
-                </div>
-            `;
-        }
-    })
-    .catch(error => {
-        console.error('Error loading enrolled courses:', error);
-        document.getElementById('enrolled-courses-container').innerHTML = `
-            <div class="alert alert-danger">
-                <i class="bi bi-exclamation-triangle"></i>
-                Failed to load enrolled courses. Please refresh the page.
-            </div>
-        `;
-    });
+// Utility: show bootstrap alert inside content wrapper
+function showBootstrapAlert(type, title, message){
+    const id = 'alert-' + Date.now();
+    const html = `<div class="alert alert-${type} alert-dismissible fade show" id="${id}" role="alert">
+        <strong>${title}</strong> ${escapeHtml(message)}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>`;
+    $('.content-wrapper').prepend(html);
+    setTimeout(function(){ $('#' + id).alert('close'); }, 4500);
 }
 
-// Load available courses
-function loadAvailableCourses() {
-    fetch('<?= site_url('course/available') ?>', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest'
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        const container = document.getElementById('available-courses-container');
-        
-        if (data.status && data.data.length > 0) {
-            container.innerHTML = `
-                <div class="row">
-                    ${data.data.map(course => `
-                        <div class="col-md-6 col-lg-4 mb-3">
-                            <div class="course-card p-3 h-100">
-                                <div class="course-title">${escapeHtml(course.title)}</div>
-                                <div class="course-description mb-3">${escapeHtml(course.description || 'No description available')}</div>
-                                <button class="btn btn-enroll w-100 enroll-btn" data-course-id="${course.id}" id="enroll-btn-${course.id}">
-                                    <i class="bi bi-plus-circle"></i> Enroll Now
-                                </button>
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-        } else {
-            container.innerHTML = `
-                <div class="empty-state">
-                    <i class="bi bi-check-circle"></i>
-                    <h5>All Caught Up!</h5>
-                    <p>You're enrolled in all available courses. Great job!</p>
-                </div>
-            `;
-        }
-    })
-    .catch(error => {
-        console.error('Error loading available courses:', error);
-        document.getElementById('available-courses-container').innerHTML = `
-            <div class="alert alert-danger">
-                <i class="bi bi-exclamation-triangle"></i>
-                Failed to load available courses. Please refresh the page.
-            </div>
-        `;
-    });
+// escape html
+function escapeHtml(text){
+    if (!text) return '';
+    return $('<div/>').text(text).html();
 }
 
-// jQuery-based enrollment function
-function enrollInCourseWithJQuery(courseId, $button) {
-    const originalText = $button.html();
-    
-    // Disable button and show loading
-    $button.prop('disabled', true);
-    $button.html('<i class="bi bi-hourglass-split"></i> Enrolling...');
-    
-    // Use jQuery $.post() as requested
-    $.post('<?= site_url('course/enroll') ?>', {
-        course_id: courseId,
-        csrf_hash: getCSRFTokenValue()
-    })
-    .done(function(data) {
-        if (data.status) {
-            // Show Bootstrap alert message
-            showBootstrapAlert('success', 'Success!', data.message);
-            
-            // Hide/disable the enroll button for this course
-            $button.hide();
-            
-            // Update the Enrolled Courses list dynamically
-            loadEnrolledCourses();
-            loadAvailableCourses();
-        } else {
-            showBootstrapAlert('danger', 'Error', data.message);
-            // Re-enable button
-            $button.prop('disabled', false);
-            $button.html(originalText);
-        }
-    })
-    .fail(function(xhr, status, error) {
-        console.error('Error enrolling in course:', error);
-        showBootstrapAlert('danger', 'Error', 'Failed to enroll. Please try again.');
-        // Re-enable button
-        $button.prop('disabled', false);
-        $button.html(originalText);
-    });
-}
-
-// Original fetch-based enrollment function (kept for compatibility)
-function enrollInCourse(courseId) {
-    const button = document.getElementById(`enroll-btn-${courseId}`);
-    const originalText = button.innerHTML;
-    
-    // Disable button and show loading
-    button.disabled = true;
-    button.innerHTML = '<i class="bi bi-hourglass-split"></i> Enrolling...';
-    
-    fetch('<?= site_url('course/enroll') ?>', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'X-Requested-With': 'XMLHttpRequest'
-        },
-        body: `course_id=${courseId}&${getCSRFToken()}`
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status) {
-            showToast('success', 'Success!', data.message);
-            // Reload both sections
-            loadEnrolledCourses();
-            loadAvailableCourses();
-        } else {
-            showToast('error', 'Error', data.message);
-            // Re-enable button
-            button.disabled = false;
-            button.innerHTML = originalText;
-        }
-    })
-    .catch(error => {
-        console.error('Error enrolling in course:', error);
-        showToast('error', 'Error', 'Failed to enroll. Please try again.');
-        // Re-enable button
-        button.disabled = false;
-        button.innerHTML = originalText;
-    });
-}
-
-// Cancel enrollment
-function cancelEnrollment(courseId) {
-    if (!confirm('Are you sure you want to withdraw from this course?')) {
-        return;
-    }
-    
-    fetch('<?= site_url('course/cancelEnrollment') ?>', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'X-Requested-With': 'XMLHttpRequest'
-        },
-        body: `course_id=${courseId}&${getCSRFToken()}`
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status) {
-            showToast('success', 'Success!', data.message);
-            // Reload both sections
-            loadEnrolledCourses();
-            loadAvailableCourses();
-        } else {
-            showToast('error', 'Error', data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error canceling enrollment:', error);
-        showToast('error', 'Error', 'Failed to withdraw. Please try again.');
-    });
-}
-
-// Show toast notification
-function showToast(type, title, message) {
-    const toastContainer = document.querySelector('.toast-container');
-    const toastId = 'toast-' + Date.now();
-    
-    const toastHtml = `
-        <div class="toast" id="${toastId}" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header bg-${type === 'success' ? 'success' : 'danger'} text-white">
-                <i class="bi bi-${type === 'success' ? 'check-circle' : 'exclamation-triangle'} me-2"></i>
-                <strong class="me-auto">${title}</strong>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
-            </div>
-            <div class="toast-body">
-                ${message}
-            </div>
-        </div>
-    `;
-    
-    toastContainer.insertAdjacentHTML('beforeend', toastHtml);
-    
-    const toastElement = document.getElementById(toastId);
-    const toast = new bootstrap.Toast(toastElement, { delay: 5000 });
-    toast.show();
-    
-    // Remove toast element after it's hidden
-    toastElement.addEventListener('hidden.bs.toast', function() {
-        toastElement.remove();
-    });
-}
-
-// Utility functions
-function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-}
-
-function formatDate(dateString) {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
-    });
-}
-
-// Show Bootstrap alert message
-function showBootstrapAlert(type, title, message) {
-    const alertId = 'alert-' + Date.now();
-    const alertHtml = `
-        <div class="alert alert-${type} alert-dismissible fade show" id="${alertId}" role="alert">
-            <strong>${title}:</strong> ${message}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    `;
-    
-    // Add alert to the top of the content wrapper
-    $('.content-wrapper').prepend(alertHtml);
-    
-    // Auto-remove alert after 5 seconds
-    setTimeout(function() {
-        $(`#${alertId}`).alert('close');
-    }, 5000);
-}
-
-function getCSRFToken() {
-    // Get CSRF token from meta tag or form
-    const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || 
-                  document.querySelector('input[name="csrf_hash"]')?.value || '';
-    return `csrf_hash=${token}`;
-}
-
-function getCSRFTokenValue() {
-    // Get CSRF token value only (for jQuery)
-    return document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || 
-           document.querySelector('input[name="csrf_hash"]')?.value || '';
-}
+function capitalize(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
 </script>
+
 </body>
 </html>
